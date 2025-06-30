@@ -2,7 +2,7 @@
 
 An intelligent, file-aware platform that helps businesses analyze competitors, extract insights from internal documents, and generate detailed strategy + SWOT reports using LLMs and RAG.
 
-![Streamlit Screenshot](./assets/app_screenshot.png) <!-- optional screenshot -->
+![Streamlit Screenshot](./assets/ss/home.jpg) <!-- optional screenshot -->
 
 ---
 
