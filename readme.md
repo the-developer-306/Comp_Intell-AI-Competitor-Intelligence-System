@@ -159,7 +159,7 @@ MIT License. Use freely and contribute if you love it!
 📬 Contact
 ----------
 
-Built by [Pratham](https://www.linkedin.com/in/pratham-yourname) -- passionate about automation, AI, and making business tools smarter.
+Built by [Pratham](https://the-developer-306.github.io/Portfolio-PrathamKhanna/) -- passionate about automation, AI, and making business tools smarter.
 
 For any questions or suggestions, feel free to reach out:
 
