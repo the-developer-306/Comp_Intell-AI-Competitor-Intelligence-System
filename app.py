@@ -30,7 +30,7 @@ st.markdown("""
 # --- Sidebar Logo (Text-Based) ---
 st.sidebar.markdown("""
 <h2 style='text-align: center; font-family: "Segoe UI", sans-serif; color: #6dd5ed;'>
-    🤖 <b>Comp<span style="color:white;">Intell</span><span style="font-size:14px;">.AI</span></b>
+     <b>Comp<span style="color:white;">Intell</span><span style="font-size:14px;">.AI</span></b>
 </h2>
 """, unsafe_allow_html=True)
 
@@ -38,17 +38,17 @@ st.sidebar.markdown("""
 st.sidebar.markdown("""
 <div style="background-color:#1e1e2f; padding:18px; border-radius:10px; margin-top:12px;">
     
-<h4 style="color:#6dd5ed; margin-bottom:5px;">🤝 Who are we?</h4>
+<h4 style="color:#6dd5ed; margin-bottom:5px;"> Who are we?</h4>
 <p style="font-size:13px; color:white; margin-top:0;">
     We are an AI-first startup building tools to supercharge business decisions with data and intelligence.
 </p>
     
-<h4 style="color:#6dd5ed; margin-top:15px; margin-bottom:5px;">🧠 What we do</h4>
+<h4 style="color:#6dd5ed; margin-top:15px; margin-bottom:5px;"> What we do</h4>
 <p style="font-size:13px; color:white; margin-top:0;">
     We analyze your documents, research competitors, generate strategies, and present it all as a beautiful report—instantly.
 </p>
 
-<h4 style="color:#6dd5ed; margin-top:15px; margin-bottom:5px;">🚀 Our vision</h4>
+<h4 style="color:#6dd5ed; margin-top:15px; margin-bottom:5px;"> Our vision</h4>
 <p style="font-size:13px; color:white; margin-top:0;">
     Democratizing competitive intelligence for every startup—no expensive consultants, just smart AI workflows.
 </p>
@@ -66,18 +66,18 @@ st.session_state["exa_api_key"] = st.secrets["EXA_AI_API_KEY"]
 #     st.sidebar.warning("Please enter all required API keys to proceed.")
 
 # Main inputs
-st.markdown("### 👇 Enter your Company's Information")
+st.markdown("###  Enter your Company's Information")
 st.write(" ")
 
 
-url_input = st.text_input("🔗 Company's URL (optional)", placeholder="https://example.com")
-description_input = st.text_input("📝 Company's Description", placeholder="E.g. AI-powered fitness app for runners")
+url_input = st.text_input(" Company's URL (optional)", placeholder="https://example.com")
+description_input = st.text_input(" Company's Description", placeholder="E.g. AI-powered fitness app for runners")
 
 st.write(" ")
 st.write(" ")
 
 # File uploader header
-st.markdown("### 📁 Upload your Company's Files")
+st.markdown("###  Upload your Company's Files")
 
 # Expander for guidance
 
