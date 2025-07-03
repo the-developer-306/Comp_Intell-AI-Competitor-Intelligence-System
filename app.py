@@ -14,26 +14,59 @@ warnings.filterwarnings('ignore')
 st.set_page_config(page_title="Comp_Intell-AI", layout="wide")
 st.title("AI Competitor Intelligence System")
 
-# Sidebar for API keys
-st.sidebar.header("🔐 API Keys")
-deepseek_api_key = st.sidebar.text_input("DeepSeek API Key", type="password")
-firecrawl_api_key = st.sidebar.text_input("Firecrawl API Key", type="password")
-exa_api_key = st.sidebar.text_input("Exa API Key", type="password")
+# --- Sidebar Theming with Gradient Background ---
+st.markdown("""
+    <style>
+    [data-testid="stSidebar"] {
+        background: linear-gradient(145deg, #0f2027, #203a43, #2c5364);
+        color: white;
+    }
+    [data-testid="stSidebar"] h2, [data-testid="stSidebar"] p {
+        color: white;
+    }
+    </style>
+""", unsafe_allow_html=True)
+
+# --- Sidebar Logo (Text-Based) ---
+st.sidebar.markdown("""
+<h2 style='text-align: center; font-family: "Segoe UI", sans-serif; color: #6dd5ed;'>
+    🤖 <b>Comp<span style="color:white;">Intell</span><span style="font-size:14px;">.AI</span></b>
+</h2>
+""", unsafe_allow_html=True)
+
+# --- Sidebar Info Panel ---
+st.sidebar.markdown("""
+<div style="background-color:#1e1e2f; padding:18px; border-radius:10px; margin-top:12px;">
+    
+<h4 style="color:#6dd5ed; margin-bottom:5px;">🤝 Who are we?</h4>
+<p style="font-size:13px; color:white; margin-top:0;">
+    We are an AI-first startup building tools to supercharge business decisions with data and intelligence.
+</p>
+    
+<h4 style="color:#6dd5ed; margin-top:15px; margin-bottom:5px;">🧠 What we do</h4>
+<p style="font-size:13px; color:white; margin-top:0;">
+    We analyze your documents, research competitors, generate strategies, and present it all as a beautiful report—instantly.
+</p>
+
+<h4 style="color:#6dd5ed; margin-top:15px; margin-bottom:5px;">🚀 Our vision</h4>
+<p style="font-size:13px; color:white; margin-top:0;">
+    Democratizing competitive intelligence for every startup—no expensive consultants, just smart AI workflows.
+</p>
+
+</div>
+""", unsafe_allow_html=True)
 
 # Store keys in session state for later access
-if deepseek_api_key:
-    st.session_state["deepseek_api_key"] = deepseek_api_key
-if firecrawl_api_key:
-    st.session_state["firecrawl_api_key"] = firecrawl_api_key
-if exa_api_key:
-    st.session_state["exa_api_key"] = exa_api_key
+st.session_state["deepseek_api_key"] = st.secrets["DEEPSEEK_API_KEY"]
+st.session_state["firecrawl_api_key"] = st.secrets["FIRECRAWL_API_KEY"]
+st.session_state["exa_api_key"] = st.secrets["EXA_AI_API_KEY"]
 
 # Warning if any API key is missing
-if not all([deepseek_api_key, firecrawl_api_key, exa_api_key]):
-    st.sidebar.warning("Please enter all required API keys to proceed.")
+# if not all([deepseek_api_key, firecrawl_api_key, exa_api_key]):
+#     st.sidebar.warning("Please enter all required API keys to proceed.")
 
 # Main inputs
-st.markdown("### 👇 Enter Company Information")
+st.markdown("### 👇 Enter your Company's Information")
 st.write(" ")
 
 
@@ -44,7 +77,7 @@ st.write(" ")
 st.write(" ")
 
 # File uploader header
-st.markdown("### 📁 Upload Company's Files")
+st.markdown("### 📁 Upload your Company's Files")
 
 # Expander for guidance
 
