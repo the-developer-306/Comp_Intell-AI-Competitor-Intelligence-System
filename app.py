@@ -5,13 +5,14 @@ from agents.deepseek_agent import ( generate_comparison_table, generate_strategy
 from agents.rag_agent import generate_company_context
 import os
 from components.pdf_exporter import generate_pdf
+from streamlit_extras.stylable_container import stylable_container
 
 import warnings
 warnings.filterwarnings('ignore')
 
 # Streamlit page setup
-st.set_page_config(page_title="🧠 AI Competitor Intelligence", layout="wide")
-st.title("AI Competitor Intelligence Agent")
+st.set_page_config(page_title="Comp_Intell-AI", layout="wide")
+st.title("AI Competitor Intelligence System")
 
 # Sidebar for API keys
 st.sidebar.header("🔐 API Keys")
@@ -32,21 +33,63 @@ if not all([deepseek_api_key, firecrawl_api_key, exa_api_key]):
     st.sidebar.warning("Please enter all required API keys to proceed.")
 
 # Main inputs
-st.markdown("### 👇 Enter Company Info")
-col1, col2 = st.columns(2)
+st.markdown("### 👇 Enter Company Information")
+st.write(" ")
 
-with col1:
-    url_input = st.text_input("🔗 Company's URL", placeholder="https://example.com")
-    description_input = st.text_input("📝 Company's Description", placeholder="E.g. AI-powered fitness app for runners")
 
-with col2:
-    # File uploader
-    st.markdown("### 📁 Upload Company's Files (Optional)")
-    uploaded_files = st.file_uploader(
-        "Upload internal documents (PDF, DOCX, TXT)",
-        type=["pdf", "docx", "txt"],
-        accept_multiple_files=True
-    )
+url_input = st.text_input("🔗 Company's URL (optional)", placeholder="https://example.com")
+description_input = st.text_input("📝 Company's Description", placeholder="E.g. AI-powered fitness app for runners")
+
+st.write(" ")
+st.write(" ")
+
+# File uploader header
+st.markdown("### 📁 Upload Company's Files")
+
+# Expander for guidance
+
+
+with stylable_container(
+    key="file_hint",
+    css_styles="""
+        button {
+            background-color: #e6f0ff;
+            border: 1px solid #3399ff;
+            color: #0059b3;
+            padding: 0.5em;
+            margin-top: 10px;
+        }
+    """,
+):
+    if st.button("❓ What files should I upload?"):
+        st.markdown("""
+        Help us generate richer business insights by uploading files such as:
+
+        - **Annual Reports** – sales, revenue, growth stats  
+        - **Mission/Vision Docs** – company goals and values  
+        - **Marketing Strategy Files** – campaigns, customer personas  
+        - **Product Brochures / Feature Sheets**  
+        - **Customer Feedback Summaries**  
+        - **Internal Policy Docs** – HR, pricing, sustainability  
+
+        Accepted: `.pdf`, `.docx`, `.txt`
+        """)
+
+
+# File uploader
+uploaded_files = st.file_uploader(
+    "Upload internal documents (PDF, DOCX, TXT)",
+    type=["pdf", "docx", "txt"],
+    accept_multiple_files=True
+)
+
+# Display uploaded file names and types
+if uploaded_files:
+    st.success(f"✅ {len(uploaded_files)} file(s) uploaded successfully!")
+    for file in uploaded_files:
+        file_ext = file.name.split(".")[-1].upper()
+        st.write(f"📄 `{file.name}` ({file_ext})")
+
 st.write(" ")
 
 # Analyze button
